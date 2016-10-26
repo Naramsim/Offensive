@@ -1,4 +1,4 @@
-FROM lwis/java5
+FROM java5
 
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
@@ -22,5 +22,8 @@ RUN set -x \
 # TODO find a simple hacky way to verify Tomcat Native is working properly
 # (the way we use in 7+ doesn't work here because we have no "configtest")
 
+COPY ./server.xml /usr/local/tomcat/conf/server.xml
+COPY ./context.xml /usr/local/tomcat/conf/context.xml
+COPY ./tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
 EXPOSE 8080
 CMD ["bin/catalina.sh", "run"]
