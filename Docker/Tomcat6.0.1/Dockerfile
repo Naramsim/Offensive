@@ -22,25 +22,15 @@ RUN set -x \
 	&& wget -O tomcat.tar.gz "$TOMCAT_TGZ_URL" \
 	&& tar xvf tomcat.tar.gz -C "$CATALINA_HOME" --strip-components=1
 
-# TODO find a simple hacky way to verify Tomcat Native is working properly
-# (the way we use in 7+ doesn't work here because we have no "configtest")
-
 COPY ./server.xml /usr/local/tomcat/conf/server.xml
 COPY ./context.xml /usr/local/tomcat/conf/context.xml
 COPY ./tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
-COPY ./escalate.sh /usr/local/tomcat/escalate.sh
-#COPY ./init.sh /usr/local/tomcat/bin/init.sh
-RUN echo "#!/bin/bash" > bin/init.sh
-RUN echo "sh /usr/local/tomcat/bin/catalina.sh start && sleep 2 && tail -f /etc/passwd" >> bin/init.sh
 
-USER root
-RUN chmod +x /usr/local/tomcat/bin/init.sh \
-	&& chown tomcatUser:tomcat /usr/local/tomcat/bin/init.sh
-RUN chmod +x /usr/local/tomcat/escalate.sh \
-	&& chown tomcatUser:tomcat /usr/local/tomcat/escalate.sh
-USER tomcatUser
-USER root
+RUN echo "#!/bin/bash" > bin/init.sh \
+	&& echo "sh /usr/local/tomcat/bin/catalina.sh start && sleep 2 && tail -f /etc/passwd" >> bin/init.sh
+
+RUN chmod +x /usr/local/tomcat/bin/init.sh
+
 EXPOSE 8080
-#RUN bin/init.sh && sleep 2
+
 CMD ["bin/init.sh"]
-#CMD ["tail", "-f", "/usr/local/tomcat/logs/catalina.out"]

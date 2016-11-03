@@ -10,8 +10,8 @@ docker ps -a
 docker build -t tomcat601 .
 
 # Run
-docker run -p 127.0.0.1:8080:8080 --name tomcat601in -i -t tomcat601
-
+docker run -p 8080:8080 --name tomcat601in -i -t tomcat601
+docker run -p 8080:8080 --name tomcat6039in -v C:/Users/Ale/Documents/R/Offensive/Docker/Tomcat6.0.39/shared:/tmp/tomcat6/shared -i -t tomcat6039
 # Restart (not useful)
 docker restart tomcat601in
 
@@ -28,7 +28,7 @@ docker rmi [image]
 docker exec -it tomcat601in bash
 
 # Create metasploit image 
-docker run --rm -i -t -p 9990-9999:9990-9999 -v C:/Users/Ale/Documents/R/Offensive/Docker/Metasploit/.msf4:/root/.msf4 -v C:/Users/Ale/Documents/R/Offensive/Docker/Metasploit/msf:/tmp/data --name msf phocean/msf
+docker run -i -t --net=host -v C:/Users/Ale/Documents/R/Offensive/Docker/Metasploit/.msf4:/root/.msf4 -v C:/Users/Ale/Documents/R/Offensive/Docker/Metasploit/msf:/tmp/data --name msf phocean/msf
 
 # Re-attach to metasploit
 docker restart msf
