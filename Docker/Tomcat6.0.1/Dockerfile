@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y libapr1 && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd tomcat \
 	&& useradd -ms /bin/bash -g tomcat -d "$CATALINA_HOME" tomcatUser \
-	&& chown tomcatUser:tomcat "$CATALINA_HOME"
+	&& chown -R tomcatUser:tomcat "$CATALINA_HOME"
 
 USER tomcatUser
 
@@ -28,5 +28,19 @@ RUN set -x \
 COPY ./server.xml /usr/local/tomcat/conf/server.xml
 COPY ./context.xml /usr/local/tomcat/conf/context.xml
 COPY ./tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
+COPY ./escalate.sh /usr/local/tomcat/escalate.sh
+#COPY ./init.sh /usr/local/tomcat/bin/init.sh
+RUN echo "#!/bin/bash" > bin/init.sh
+RUN echo "sh /usr/local/tomcat/bin/catalina.sh start && sleep 2 && tail -f /etc/passwd" >> bin/init.sh
+
+USER root
+RUN chmod +x /usr/local/tomcat/bin/init.sh \
+	&& chown tomcatUser:tomcat /usr/local/tomcat/bin/init.sh
+RUN chmod +x /usr/local/tomcat/escalate.sh \
+	&& chown tomcatUser:tomcat /usr/local/tomcat/escalate.sh
+USER tomcatUser
+USER root
 EXPOSE 8080
-CMD ["bin/catalina.sh", "run"]
+#RUN bin/init.sh && sleep 2
+CMD ["bin/init.sh"]
+#CMD ["tail", "-f", "/usr/local/tomcat/logs/catalina.out"]

