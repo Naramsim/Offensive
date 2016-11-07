@@ -26,6 +26,7 @@ docker rmi [image]
 
 # Connect to container
 docker exec -it tomcat601in bash
+docker exec -it --user=tomcat8 tomcat6045in bash
 
 # Create metasploit image 
 docker run -i -t --net=host -v C:/Users/Ale/Documents/R/Offensive/Docker/Metasploit/.msf4:/root/.msf4 -v C:/Users/Ale/Documents/R/Offensive/Docker/Metasploit/msf:/tmp/data --name msf phocean/msf

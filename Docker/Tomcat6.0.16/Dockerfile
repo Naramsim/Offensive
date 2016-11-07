@@ -2,9 +2,7 @@ FROM java5
 
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
-ENV TOMCAT_MAJOR 6
-ENV TOMCAT_VERSION 6.0.1
-ENV TOMCAT_TGZ_URL https://archive.apache.org/dist/tomcat/tomcat-6/v6.0.1/bin/apache-tomcat-6.0.1.tar.gz
+ENV TOMCAT_TGZ_URL https://archive.apache.org/dist/tomcat/tomcat-6/v6.0.16/bin/apache-tomcat-6.0.16.tar.gz
 RUN mkdir -p "$CATALINA_HOME"
 WORKDIR $CATALINA_HOME
 
