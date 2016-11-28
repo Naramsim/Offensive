@@ -1,1 +1,3 @@
 Docker/Metasploit/msf/pathTraversal/*.html
+*.pyc
+node_modules
