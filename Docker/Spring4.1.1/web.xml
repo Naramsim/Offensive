@@ -34,7 +34,7 @@
     <servlet-class>org.apache.catalina.manager.ManagerServlet</servlet-class>
     <init-param>
       <param-name>debug</param-name>
-      <param-value>2</param-value>
+      <param-value>0</param-value>
     </init-param>
   </servlet>
   <servlet>
@@ -42,7 +42,7 @@
     <servlet-class>org.apache.catalina.manager.HTMLManagerServlet</servlet-class>
     <init-param>
       <param-name>debug</param-name>
-      <param-value>2</param-value>
+      <param-value>0</param-value>
     </init-param>
     <!-- Uncomment this to show proxy sessions from the Backup manager or a
          StoreManager in the sessions list for an application

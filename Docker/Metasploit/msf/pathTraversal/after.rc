@@ -1,5 +1,2 @@
-getuid
-ls
-cat /etc/passwd
-exit
+run inject
 exit
