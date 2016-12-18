@@ -4,7 +4,7 @@ ENV CATALINA_HOME /usr/share/tomcat7
 ENV CATALINA_BASE /var/lib/tomcat7
 
 RUN apt-get update
-RUN apt-get install -y tomcat7=7.0.68-1 tomcat7-docs tomcat7-examples tomcat7-admin wget build-essential sudo nano cron
+RUN apt-get install -y tomcat7=7.0.68-1 tomcat7-admin wget build-essential sudo nano cron
 RUN cd /var/lib/tomcat7 \
 	&& ln -s /usr/share/java lib
 RUN echo "#!/bin/bash" > /bin/startupTomcat.sh \

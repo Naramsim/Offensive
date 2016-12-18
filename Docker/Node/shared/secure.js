@@ -2,13 +2,13 @@ const Nightmare = require('nightmare');
 
 const nightmare = new Nightmare();
 
-nightmare.goto('http://10.0.75.2:8080/configureSecurity/?')
+nightmare.goto('http://10.0.75.2:9090/configureSecurity/?')
     .click('#cb12')
     .click('#radio-block-1')
     .click('#radio-block-6')
     .click('#yui-gen4-button')
     .wait(500)
-    .goto('http://10.0.75.2:8080/signup')
+    .goto('http://10.0.75.2:9090/signup')
     .type('#username', 'victor')
     .type('input[name=password1]', 'kawasaki')
     .type('input[name=password2]', 'kawasaki')

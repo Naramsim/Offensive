@@ -29,6 +29,13 @@ RUN echo "#!/bin/bash" > bin/init.sh \
 
 RUN chmod +x /usr/local/tomcat/bin/init.sh
 
-EXPOSE 8080
+USER root
+
+RUN echo "10.0.75.2 moby localhost" > /etc/hosts  
+RUN echo "127.0.0.1       localhost" > /etc/hosts  
+
+USER tomcatUser
+
+EXPOSE 7070
 
 CMD ["bin/init.sh"]

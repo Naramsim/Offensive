@@ -14,8 +14,7 @@ RUN chmod +x /bin/startupTomcat.sh
 USER tomcat7
 RUN mkdir /tmp/tomcat7 && mkdir /tmp/tomcat7/shared
 WORKDIR /tmp/tomcat7
-RUN wget http://legalhackers.com/exploits/tomcat-rootprivesc-deb.sh \
-	&& chmod +x tomcat-rootprivesc-deb.sh
+# RUN wget http://legalhackers.com/exploits/tomcat-rootprivesc-deb.sh && chmod +x tomcat-rootprivesc-deb.sh
 
 USER root
 

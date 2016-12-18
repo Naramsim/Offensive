@@ -52,8 +52,10 @@ RUN curl -fsSL ${JENKINS_URL} -o /usr/share/jenkins/jenkins.war \
 ENV JENKINS_UC https://updates.jenkins.io
 RUN chown -R ${user} "$JENKINS_HOME" /usr/share/jenkins/ref
 
+ENV JENKINS_OPTS --httpPort=9090
+
 # for main web interface:
-EXPOSE 8080
+EXPOSE 9090
 
 # will be used by attached slave agents:
 EXPOSE 50000
@@ -66,7 +68,7 @@ RUN /usr/sbin/useradd -p `openssl passwd -1 jenkins2` -G jenkins jenkins2
 
 COPY jenkins-support /usr/local/bin/jenkins-support
 COPY jenkins.sh /usr/local/bin/jenkins.sh
-ENTRYPOINT ["java", "-jar", "/usr/share/jenkins/jenkins.war"]
+ENTRYPOINT ["java", "-jar", "/usr/share/jenkins/jenkins.war", "--httpPort=9090"]
 
 # from a derived Dockerfile, can use `RUN plugins.sh active.txt` to setup /usr/share/jenkins/ref/plugins from a support bundle
 #COPY plugins.sh /usr/local/bin/plugins.sh
