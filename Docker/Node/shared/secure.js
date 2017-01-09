@@ -10,10 +10,10 @@ nightmare.goto('http://10.0.75.2:9090/configureSecurity/?')
     .wait(500)
     .goto('http://10.0.75.2:9090/signup')
     .type('#username', 'victor')
-    .type('input[name=password1]', 'kawasaki')
-    .type('input[name=password2]', 'kawasaki')
+    .type('input[name=password1]', 'honda')
+    .type('input[name=password2]', 'honda')
     .type('input[name=fullname]', 'victor')
-    .type('input[name=email]', 'kawasaki@repsol.com')
+    .type('input[name=email]', 'honda@repsol.com')
     .click('#yui-gen1-button')
     .end()
     .then(result => {
@@ -22,3 +22,5 @@ nightmare.goto('http://10.0.75.2:9090/configureSecurity/?')
     .catch(error => {
         console.error(error);
     });
+
+// xvfb-run node secure.js
