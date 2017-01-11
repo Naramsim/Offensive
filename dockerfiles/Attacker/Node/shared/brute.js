@@ -36,6 +36,8 @@ const xmlJob = `<?xml version='1.0' encoding='UTF-8'?>
   <buildWrappers/>
 </project>`;
 
+console.log("W")
+
 var permutationLength = 1;
 var namesDictIndex = -1;
 var passwordDictIndex = -1;

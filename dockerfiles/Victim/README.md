@@ -8,7 +8,7 @@ sh build.sh
 Present in ./Tomcat6.0.1 and ./Tomcat6.0.16
 Server listen on localhost:7070
 
-### CVE-2014-1904 Spring path traversal
+### CVE-2014-3625 Spring path traversal
 Present in ./Spring4.0.1 and ./Spring4.1.1
 Server listen on localhost:8080
 
